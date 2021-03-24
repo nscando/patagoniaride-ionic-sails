@@ -9,10 +9,14 @@ import { Observable } from 'rxjs';
   styleUrls: ['./rides.page.scss'],
 })
 export class RidesPage implements OnInit {
-  rides: Observable<[Ride]>;
+  rides: Observable<Ride[]>;
   constructor(private rideService: RideService) {}
 
   ngOnInit() {
+    this.getRides();
+  }
+
+  getRides() {
     this.rides = this.rideService.getAll();
   }
 }
